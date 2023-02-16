@@ -1,0 +1,12 @@
+CC=gcc
+CFLAGS=-Wall
+
+all:
+	${CC} ${CFLAGS} -c sockop.c
+	${CC} ${CFLAGS} -c client.c
+	${CC} ${CFLAGS} -c hw2_1.c
+	${CC} ${CFLAGS} client.o sockop.o -o client -lpthread
+	${CC} ${CFLAGS} hw2_1.o sockop.o -o server -lpthread
+
+clean: 
+	${RM} server client hw2_1.o sockop.o client.o
